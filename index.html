@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title</title>
+    <title>Discrete Event Simulation</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
       <!-- Navbar -->
       <nav class="navbar bg-primary-subtle">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Navbar</span>
+          <span class="navbar-brand mb-0 h1">Discrete Event Simulation</span>
         </div>
       </nav>
 
@@ -34,7 +34,7 @@
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              <strong>Accordion Item #1</strong>
+              <strong>Introduction</strong>
             </button>
           </h2>
           <div
@@ -43,7 +43,35 @@
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <p>Hello World!</p>
+              <p>
+                This page is used to show the code and result of a queue
+                simulation project. By implementing discrete event simulation,
+                we are going to model and discuss the event of packets arrival
+                and departure in a computer network.
+              </p>
+
+              <span>The project includes</span>
+              <ul>
+                <li>generation of random variables for a given distribution</li>
+                <li>building an event scheduler</li>
+                <li>
+                  discussion for the behavior of a single buffer queue with
+                  different parameters
+                </li>
+              </ul>
+
+              <p>The M/M/1 and M/M/1/K model would be built in this project.</p>
+
+              <p>This page is written in HTML, CSS, Bootstrap.</p>
+              <p>
+                The simulation code is written in Python. The code can be found
+                in
+                <a
+                  href="https://github.com/ywcodey/discrete-event-simulation"
+                  target="_blank"
+                  >here</a
+                >.
+              </p>
             </div>
           </div>
         </div>
@@ -58,7 +86,7 @@
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              <strong>Accordion Item #2</strong>
+              <strong>Simulator Design</strong>
             </button>
           </h2>
           <div
@@ -68,22 +96,56 @@
           >
             <div class="accordion-body">
               <!-- Grid -->
-              <div class="container text-center">
+              <div class="container">
                 <!-- Row #1 -->
                 <div class="row">
+                  <p><strong>M/M/1 Simulator</strong></p>
                   <div class="col-6">
                     <ul class="list-group">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
-                      <li class="list-group-item">A fourth item</li>
-                      <li class="list-group-item">And a fifth one</li>
+                      <li class="list-group-item">
+                        1. Create a function to generate exponential random
+                        variables, and create an linked list object as event
+                        scheduler (ES) list.
+                      </li>
+                      <li class="list-group-item">
+                        2. Generate packet arrival events, with parameter
+                        arrival rate, and append to ES, until reaching the time
+                        length.
+                      </li>
+                      <li class="list-group-item">
+                        3. Generate observe event, with parameter observe rate,
+                        and insert to ES, until reaching the time length.
+                      </li>
+                      <li class="list-group-item">
+                        4. Initialize variables to zero, for example, queue
+                        length, number of arrivals, number of observe, number of
+                        departures.
+                      </li>
+                      <li class="list-group-item">
+                        5. Dequeue one event at a time from ES and call the
+                        corresponding event procedure.
+                      </li>
+                      <li class="list-group-item">
+                        6. Obtain the output result for further discussion and
+                        analysis.
+                      </li>
                     </ul>
                   </div>
                   <div class="col-6">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
+                        <img
+                          src="images/code1.png"
+                          class="img-fluid"
+                          alt="code1"
+                        />
+                      </li>
+                      <li class="list-group-item">
+                        <img
+                          src="images/code2.png"
+                          class="img-fluid"
+                          alt="code2"
+                        />
                       </li>
                     </ul>
                   </div>
@@ -91,19 +153,32 @@
                 <br />
                 <!-- Row #2 -->
                 <div class="row">
+                  <p><strong>M/M/1/K Simulator</strong></p>
+
                   <div class="col-6">
                     <ul class="list-group">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
-                      <li class="list-group-item">A fourth item</li>
-                      <li class="list-group-item">And a fifth one</li>
+                      <li class="list-group-item">
+                        M/M/1/K, where K denote the size of the buffer in number
+                        of packets.
+                      </li>
+                      <li class="list-group-item">
+                        Since the buffer is finite, when buffer is full,
+                        arriving packets will be dropped.
+                      </li>
+                      <li class="list-group-item">
+                        So, two variables are introduced to the simulator,
+                        buffer_length and num_of_drop.
+                      </li>
                     </ul>
                   </div>
                   <div class="col-6">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
+                        <img
+                          src="images/code3.png"
+                          class="img-fluid"
+                          alt="code3"
+                        />
                       </li>
                     </ul>
                   </div>
@@ -123,7 +198,7 @@
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              <strong>Accordion Item #3</strong>
+              <strong>Result</strong>
             </button>
           </h2>
           <div
@@ -133,48 +208,191 @@
           >
             <div class="accordion-body">
               <!-- Grid -->
-              <div class="container text-center">
+              <div class="container">
                 <!-- Row #1 -->
                 <div class="row">
+                  <p><strong>M/M/1 Simulator</strong></p>
+
                   <div class="col-6">
                     <ul class="list-group">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
-                      <li class="list-group-item">A fourth item</li>
-                      <li class="list-group-item">And a fifth one</li>
+                      <li class="list-group-item">
+                        Assume L=12000bits, C=1Mbits/second, where L is average
+                        length of a packet in bits, and C is the transmission
+                        rate of the output link in bits per second.
+                      </li>
+                      <li class="list-group-item">
+                        The service rate is 1000000/12000=83.3333
+                      </li>
+                      <li class="list-group-item">
+                        rho = arrival rate/service rate = 75 / 83.3333 = 0.9
+                      </li>
+                      <li class="list-group-item">
+                        For the first plot, here is E[N], the average number of
+                        packets in the system as a function of rho.
+                      </li>
+                      <li class="list-group-item">
+                        Given rho and arrival rate, service rate can be
+                        calculated.
+                      </li>
+
+                      <li class="list-group-item">
+                        So, with a fix arrival rate and changing service rate,
+                        the plot can be obtained.
+                      </li>
+
+                      <li class="list-group-item">
+                        E[N] can be obtained by queue length recorded by observe
+                        event divided by number of observe event.
+                      </li>
+                      <li class="list-group-item">
+                        When rho increases, the E[N] increases.
+                      </li>
+                      <li class="list-group-item">
+                        When rho is 0.9, the E[N] is 9, which mean average
+                        number of packets in the system is 9.
+                      </li>
                     </ul>
                   </div>
                   <div class="col-6">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
-                      </li>
-                      <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
+                        <img
+                          src="images/Figure_Q3(1).png"
+                          class="img-fluid"
+                          alt="plot_Q3.1"
+                        />
                       </li>
                     </ul>
                   </div>
                 </div>
                 <br />
-                <!-- Row #2 -->
                 <div class="row">
                   <div class="col-6">
                     <ul class="list-group">
-                      <li class="list-group-item">An item</li>
-                      <li class="list-group-item">A second item</li>
-                      <li class="list-group-item">A third item</li>
-                      <li class="list-group-item">A fourth item</li>
-                      <li class="list-group-item">And a fifth one</li>
+                      <li class="list-group-item">
+                        For the second plot, it is the proportion of time the
+                        system is idle as a function of rho.
+                      </li>
+                      <li class="list-group-item">
+                        The proportion of idle can be obtained by number of idle
+                        recorded by observe event divided by number of observe
+                        event.
+                      </li>
+                      <li class="list-group-item">
+                        When rho increases, proportion of idle decreases.
+                      </li>
+                      <li class="list-group-item">
+                        When rho is 0.9, proportion of idle is close to 0.1.
+                      </li>
                     </ul>
                   </div>
                   <div class="col-6">
                     <ul class="list-group">
                       <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
+                        <img
+                          src="images/Figure_Q3(2).png"
+                          class="img-fluid"
+                          alt="plot_Q3.2"
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <br />
+
+                <!-- Row #2 -->
+                <div class="row">
+                  <p><strong>M/M/1/K Simulator</strong></p>
+
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        For the first plot, here is E[N], the average number of
+                        packets in the system as a function of rho for K=5, 10,
+                        40.
                       </li>
                       <li class="list-group-item">
-                        <img src="..." class="img-fluid" alt="..." />
+                        It can be found that since K=40 has buffer length 40
+                        which can accommodate more packet rather than drop the
+                        packets. So, the green line increases more rapid than
+                        the other two lines.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <img
+                          src="images/Figure_Q6(1)1.png"
+                          class="img-fluid"
+                          alt="plot_Q6.1.1"
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        For the second plot, when including infinite buffer
+                        length to K=5, 10, 40, it can be found that since
+                        infinite buffer length can store infinite packets, as
+                        rho increases, the E[N] also increase.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <img
+                          src="images/Figure_Q6(1)2.png"
+                          class="img-fluid"
+                          alt="plot_Q6.1.2"
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        For the third plot, this is the probability of packet
+                        loss for rho ranging from 0.4 to 10. The probability of
+                        packet loss is calculated by number of drops divided by
+                        number of packets.
+                      </li>
+
+                      <li class="list-group-item">
+                        It can be found that after rho greater than 2, the
+                        different in buffer length does not result in different
+                        of probability of packet loss.
+                      </li>
+
+                      <li class="list-group-item">
+                        While for rho less than 2, for example rho is 0.9,
+                        different in buffer length to probability of packet loss
+                        do matter.
+                      </li>
+
+                      <li class="list-group-item">
+                        Longer buffer length can result in lower probability of
+                        packet loss, while shorter buffer length has higher
+                        probability of packet loss.
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <img
+                          src="images/Figure_Q6(2).png"
+                          class="img-fluid"
+                          alt="plot_Q6.2"
+                        />
                       </li>
                     </ul>
                   </div>
